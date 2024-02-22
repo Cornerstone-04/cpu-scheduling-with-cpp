@@ -14,6 +14,7 @@ void MultilevelQueueScheduling(vector<Process> &processes)
     queue<Process> lowPriorityQueue;
     queue<Process> highPriorityQueue;
 
+    // enqueue processes into low or high priority queues based on priority
     for (const Process &process : processes)
     {
         if (process.priority < 3)
@@ -26,6 +27,7 @@ void MultilevelQueueScheduling(vector<Process> &processes)
         }
     }
 
+    // process each queue separately
     while (!highPriorityQueue.empty() || !lowPriorityQueue.empty())
     {
         if (!highPriorityQueue.empty())
